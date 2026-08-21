@@ -135,16 +135,16 @@ class StringUtils:
         return value is None
 
     @staticmethod
-    def is_all_empty(values: tuple[Any, ...]) -> bool:
+    def is_all_empty(*values: Any) -> bool:
         # all() = AND
         # StringUtils.is_all_empty((raw_language_id, raw_language_slug))
-        return all(StringUtils.is_empty(v) for v in values)
+        return all(StringUtils.is_empty(item) for item in values)
 
     @staticmethod
-    def is_any_empty(values: tuple[Any, ...]) -> bool:
+    def is_any_empty(*values: Any) -> bool:
         # any() = OR
         # StringUtils.is_any_empty((raw_language_id, raw_language_slug))
-        return any(StringUtils.is_empty(v) for v in values)
+        return any(StringUtils.is_empty(item) for item in values)
 
     @staticmethod
     def parse_bool(value: Any, default: bool = False) -> bool:
