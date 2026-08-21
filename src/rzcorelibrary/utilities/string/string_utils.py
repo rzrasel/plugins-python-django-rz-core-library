@@ -119,6 +119,11 @@ class StringUtils:
         )
 
     @staticmethod
+    def get_slug_number(value: str) -> Optional[int]:
+        match = re.search(r"-(\d+)$", value)
+        return int(match.group(1)) if match else None
+
+    @staticmethod
     def is_empty(value: Any) -> bool:
         if value is None:
             return True
