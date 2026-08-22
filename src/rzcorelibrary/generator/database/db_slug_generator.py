@@ -41,9 +41,7 @@ class DbSlugGenerator:
         slug = base_slug
         counter = 1
 
-        while queryset.filter(
-                **{column_name: slug}
-        ).exists():
+        while model_class.objects.filter(**{column_name: slug}).exists():
             slug = f"{base_slug}-{counter}"
             counter += 1
 
